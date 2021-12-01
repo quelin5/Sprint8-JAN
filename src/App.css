@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  background-image: url("./images/header-img.jpeg");
   display: flex;
   flex-direction: column;
+}
+
+main {
+  margin: 0;
+  background-color: black;
+  background-repeat: no-repeat;
+}
+
+.header {
+  display: flex;
   align-items: center;
+}
+
+.sw-logoL {
+  margin: 5vh;
+  background-size: contain;
+}
+
+.topnav {
+  display: flex;
+  background-color: black;
+  border: 1px solid #999;
+  border-style: groove;
+  width: 100%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.topnav a {
+  border-right: 1px groove #999;
+  text-decoration: none;
+  color: #999;
+  padding: 2vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.home {
+  border-left: 1px groove #999;
+}
+
+.shipInfo-parent {
+  display: flex;
+  justify-content: center;
+}
+
+.shipInfo-div {
+  color: #999;
+  background-color: #191919;
+  padding: 1vh;
+  width: 80%;
+  margin: 20px;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.shipName {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.cursor {
+  cursor: pointer;
 }
