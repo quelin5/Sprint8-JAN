@@ -1,11 +1,6 @@
 body {
   margin: 0;
-}
-
-header {
-  background-image: url("./images/header-img.jpeg");
-  display: flex;
-  flex-direction: column;
+  background-color: black;
 }
 
 main {
@@ -17,6 +12,19 @@ main {
 .header {
   display: flex;
   align-items: center;
+  background-image: url("./images/header-img.jpeg");
+  display: flex;
+  flex-direction: column;
+}
+.homepage-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage {
+  color: whitesmoke;
+  font-family: DIN, Helvetica, Arial, sans-serif;
 }
 
 .sw-logoL {
@@ -47,6 +55,7 @@ main {
 .shipInfo-parent {
   display: flex;
   justify-content: center;
+  background-color: black;
 }
 
 .shipInfo-div {
@@ -64,6 +73,31 @@ main {
   font-weight: bold;
 }
 
-.cursor {
-  cursor: pointer;
+.nav-login {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-login div {
+  color: white;
+}
+
+.shipdetail-whole-div {
+  color: whitesmoke;
+  margin: 50px;
+}
+
+.shipdetail-characteristics {
+  display: flex;
+  flex-direction: row;
+}
+.shipdetail-characteristics div {
+  padding-right: 10vh;
+  flex-grow: 1;
+}
+
+.button-viewmore {
+  background-color: #555555;
+  border-radius: 12px;
+  margin: 25px;
 }
