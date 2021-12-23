@@ -1,3 +1,7 @@
+* {
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   background-color: black;
@@ -16,6 +20,37 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+.login-signin {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.log-in {
+  margin: 10px;
+  color: white;
+}
+
+.sign-up {
+  margin: 10px;
+  color: white;
+}
+
+.login-div {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signUp-div {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .homepage-div {
   display: flex;
   flex-direction: column;
