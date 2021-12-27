@@ -1,9 +1,11 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 
 import letters from "../images/sw-logoL.png";
 
 const Header = () => {
+  const [disabled, setDisabled] = useState("");
+
   return (
     <Fragment>
       <div className="login-signin">
@@ -26,7 +28,9 @@ const Header = () => {
           <Link className="home" to={"/"}>
             HOME
           </Link>
-          <Link to={"/ship-list"}>STARSHIPS</Link>
+          <Link className={disabled} to={"/ship-list"}>
+            STARSHIPS
+          </Link>
         </div>
       </header>
     </Fragment>

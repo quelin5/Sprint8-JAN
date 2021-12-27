@@ -1,8 +1,10 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
+import ShipListPage from "./ShipListPage";
+import { Link } from "react-router-dom";
 
 const LogIn = () => {
-  // State log in new session
-  const [user, saveUser] = useState({
+  // Read info:
+  const [user, setUser] = useState({
     email: "",
     password: "",
   });
@@ -12,17 +14,31 @@ const LogIn = () => {
 
   // Keep up new changes from user input
   const onChangeLogIn = (e) => {
-    saveUser({
+    setUser({
       ...user,
       [e.target.name]: e.target.value,
     });
   };
 
-  //onSubmit
+  const [isAuthenticated, setisAuthenticated] = useState(false);
+
+  // OnSubmit
   const onSubmit = (e) => {
     e.preventDefault();
 
-    // pass to Action!
+    // Pass to Action!
+    let users = localStorage.getItem("users"); //from the other component
+    users = JSON.parse(users);
+
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].email === user.email) {
+        setisAuthenticated(true);
+        console.log(isAuthenticated);
+      } else {
+        setisAuthenticated(false);
+        console.log(isAuthenticated);
+      }
+    }
   };
 
   return (
@@ -51,9 +67,7 @@ const LogIn = () => {
               onChange={onChangeLogIn}
             />
           </div>
-          <div className="">
-            <input type="submit" className="" value="Log In" />
-          </div>
+          <input type="submit" />
         </form>
       </div>
     </Fragment>

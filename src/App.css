@@ -21,6 +21,12 @@ main {
   flex-direction: column;
 }
 
+.starShip-link {
+  .disabled {
+    pointer-events: none;
+  }
+}
+
 .login-signin {
   display: flex;
   justify-content: flex-end;

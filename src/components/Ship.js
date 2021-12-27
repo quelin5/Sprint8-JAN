@@ -14,7 +14,7 @@ const Ship = ({ ship }) => {
   };
 
   const { state, setState } = useContext(ShipContext);
-  console.log(state);
+
   // Primero mostrar la lista de naves.
   //Cuando se hace click en una nave, (state===true) mostrar info solo de esa nave.
 
