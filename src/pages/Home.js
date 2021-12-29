@@ -11,9 +11,7 @@ const Home = () => {
   return (
     <Fragment>
       <div className="homepage-div">
-        <p className="homepage">
-          ALL OF OUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+
-        </p>
+        <p className="homepage">WELCOME</p>
       </div>
       <div>
         <Link to={"/ship-list"}>

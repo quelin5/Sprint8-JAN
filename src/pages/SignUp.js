@@ -41,7 +41,9 @@ const SignUp = () => {
   //obtener info del localStorage
   function obtenerStorage() {
     const user = JSON.parse(localStorage.getItem("users"));
-    console.log(user);
+    if (user != null) {
+      console.log(user);
+    }
   }
   obtenerStorage();
 

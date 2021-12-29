@@ -1,8 +1,11 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
 import ShipListPage from "./ShipListPage";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const LogIn = () => {
+  const { setUserName, setIsAuthenticated } = useContext(AuthContext);
+
   // Read info:
   const [user, setUser] = useState({
     email: "",
@@ -20,24 +23,24 @@ const LogIn = () => {
     });
   };
 
-  const [isAuthenticated, setisAuthenticated] = useState(false);
-
   // OnSubmit
   const onSubmit = (e) => {
     e.preventDefault();
 
     // Pass to Action!
-    let users = localStorage.getItem("users"); //from the other component
+    let users = localStorage.getItem("users");
     users = JSON.parse(users);
 
-    for (let i = 0; i < users.length; i++) {
-      if (users[i].email === user.email) {
-        setisAuthenticated(true);
-        console.log(isAuthenticated);
-      } else {
-        setisAuthenticated(false);
-        console.log(isAuthenticated);
+    if (users != null) {
+      let userExists = users.filter((users) => users.email === user.email);
+      if (userExists.length > 0) {
+        setIsAuthenticated(true);
+        setUserName(userExists[0].email);
+        console.log("The user " + userExists + "exists");
       }
+    } else {
+      setIsAuthenticated(false);
+      console.log("There is no user in the database");
     }
   };
 
