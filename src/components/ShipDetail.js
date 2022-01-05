@@ -2,6 +2,7 @@ import React, { useEffect, useContext, Fragment } from "react";
 import { useNavigate } from "react-router";
 import "../App.css";
 import { ShipContext } from "../context/ShipContext";
+import ShipListCard from "./ShipListCard";
 
 const ShipDetail = ({ ship }) => {
   const { state } = useContext(ShipContext);
@@ -11,11 +12,14 @@ const ShipDetail = ({ ship }) => {
     !state && navigate("/ship-list");
   }, [state, navigate]);
 
+  console.log(state);
+
   return (
     state && (
       <Fragment>
         <div className="shipdetail-whole-div">
           <h2>Name: {state.name}</h2>
+          <h2>Name: {state.url}</h2>
 
           <div className="shipdetail-characteristics">
             <div>
@@ -29,6 +33,7 @@ const ShipDetail = ({ ship }) => {
               <p>Cost in credits: {state.cost_in_credits}</p>
             </div>
           </div>
+          <ShipListCard url={state.url} />
         </div>
       </Fragment>
     )

@@ -2,9 +2,11 @@ import React, { Fragment, useState, useContext } from "react";
 import ShipListPage from "./ShipListPage";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import AuthMessage from "../utils/AuthMessage";
 
 const LogIn = () => {
-  const { setUserName, setIsAuthenticated } = useContext(AuthContext);
+  const { setUserName, setIsAuthenticated, isAuthenticated } =
+    useContext(AuthContext);
 
   // Read info:
   const [user, setUser] = useState({
@@ -36,7 +38,7 @@ const LogIn = () => {
       if (userExists.length > 0) {
         setIsAuthenticated(true);
         setUserName(userExists[0].email);
-        console.log("The user " + userExists + "exists");
+        console.log("The user exists");
       }
     } else {
       setIsAuthenticated(false);
@@ -46,33 +48,37 @@ const LogIn = () => {
 
   return (
     <Fragment>
-      <div className="login-div">
-        <h1>Log In</h1>
-        <form onSubmit={onSubmit}>
-          <div className="">
-            <label htmlFor="email">Email </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={onChangeLogIn}
-            />
-          </div>
-          <div className="">
-            <label htmlFor="password">Password </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="*********"
-              value={password}
-              onChange={onChangeLogIn}
-            />
-          </div>
-          <input type="submit" />
-        </form>
-      </div>
+      {isAuthenticated ? (
+        <AuthMessage>You're logged in!</AuthMessage>
+      ) : (
+        <div className="login-div">
+          <h1>Log In </h1>
+          <form onSubmit={onSubmit}>
+            <div className="">
+              <label htmlFor="email"> Email </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={onChangeLogIn}
+              />
+            </div>
+            <div className="">
+              <label htmlFor="password"> Password </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="*********"
+                value={password}
+                onChange={onChangeLogIn}
+              />
+            </div>
+            <input type="submit" />
+          </form>
+        </div>
+      )}
     </Fragment>
   );
 };

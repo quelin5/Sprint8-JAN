@@ -9,7 +9,7 @@ const ShipListPage = () => {
     const api = await fetch("https://swapi.dev/api/starships/");
     const shipsInfo = await api.json();
 
-    // Save in the State the info regarding the ships.
+    // Save in the State the info regarding the ships.y
     getShipsInfo(shipsInfo.results);
     getNextShip(shipsInfo.next);
     console.log(ships);
